@@ -59,17 +59,21 @@ socket.connect()
 let channel = socket.channel("room:lobby", {})
 let chatInput = document.querySelector("#chat-input")
 let messagesContainer = document.querySelector("#messages")
+let userNameInput = document.querySelector("#user-name")
 
 chatInput.addEventListener("keypress", event => {
   if(event.keyCode == 13) {
-    channel.push("new_msg", {body: chatInput.value})
+    let message = userNameInput.value + ' : ' + chatInput.value
+    channel.push("new_msg", {body: message})
+    userNameInput.value = ""
     chatInput.value = ""
   }
 })
 
 channel.on("new_msg", payload => {
   let messageItem = document.createElement("li")
-  messageItem.innerText = `[${Date()}] ${payload.body}`
+  // messageItem.innerText = `[${Date()}] ${payload.body}`
+  messageItem.innerText = `[${new Date()}] ${payload.body}`
   messagesContainer.appendChild(messageItem)
 })
 

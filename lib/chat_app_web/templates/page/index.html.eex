@@ -1,5 +1,11 @@
 <div id="messages"></div>
-<input id="chat-input" type="text"></input>
+<div class="send-form">
+<form>
+  <label>Username:</label>
+  <input id="user-name" type="text"></input>
+  <input id="chat-input" type="text"></input>
+</form>
+</div>
 
 <!-- <section class="phx-hero">
   <h1><%= gettext "Welcome to %{name}!", name: "Phoenix" %></h1>
