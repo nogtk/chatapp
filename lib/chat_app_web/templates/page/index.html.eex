@@ -1,4 +1,7 @@
-<section class="phx-hero">
+<div id="messages"></div>
+<input id="chat-input" type="text"></input>
+
+<!-- <section class="phx-hero">
   <h1><%= gettext "Welcome to %{name}!", name: "Phoenix" %></h1>
   <p>A productive web framework that<br/>does not compromise speed or maintainability.</p>
 </section>
@@ -32,4 +35,4 @@
       </li>
     </ul>
   </article>
-</section>
+</section> -->
