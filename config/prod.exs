@@ -11,7 +11,7 @@ use Mix.Config
 # before starting your production server.
 config :chat_app, ChatAppWeb.Endpoint,
   # url: [host: "example.com", port: 80],
-  url: [scheme: "https", host: "kensyu-chatapp", port: 443],
+  url: [scheme: "https", host: "kensyu-chatapp.herokuapp.com", port: 443],
   force_ssl: [rewrite_on: [:x_forwarded_proto]],
   cache_static_manifest: "priv/static/cache_manifest.json"
 
