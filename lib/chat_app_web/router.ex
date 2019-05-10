@@ -19,7 +19,7 @@ defmodule ChatAppWeb.Router do
 
     get "/", PageController, :new
     get "/chat", PageController, :index
-    get "/:name", PageController, :index
+    get "/:name/chat", PageController, :enter
   end
 
   # Other scopes may use custom stacks.

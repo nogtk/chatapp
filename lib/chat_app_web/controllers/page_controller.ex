@@ -7,4 +7,7 @@ defmodule ChatAppWeb.PageController do
   def new(conn, _params) do
     render(conn, "new.html")
   end
+  def enter(conn, params) do
+    render(conn, "index.html", name: params["name"] || "default")
+  end
 end

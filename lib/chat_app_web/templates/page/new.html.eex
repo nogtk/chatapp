@@ -1,4 +1,4 @@
-<%= form_tag("/chat", method: :get) %>
+<form>
   <label>あなたの名前</label>
   <input type="text"　name="name"></input>
   <%= button "Let's Chat!!", to: Routes.page_path(@conn, :index, name: "name"), method: "get" %>
