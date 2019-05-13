@@ -1,20 +1,10 @@
-# ChatApp
+# ChatApp(仮)
+デプロイ先 (https://kensyu-chatapp.herokuapp.com)
 
-To start your Phoenix server:
-
-  * Install dependencies with `mix deps.get`
-  * Create and migrate your database with `mix ecto.setup`
-  * Install Node.js dependencies with `cd assets && npm install`
-  * Start Phoenix endpoint with `mix phx.server`
-
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
-
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
-
-## Learn more
-
-  * Official website: http://www.phoenixframework.org/
-  * Guides: https://hexdocs.pm/phoenix/overview.html
-  * Docs: https://hexdocs.pm/phoenix
-  * Mailing list: http://groups.google.com/group/phoenix-talk
-  * Source: https://github.com/phoenixframework/phoenix
+## Concept
+新しく趣味を始める人のための導入支援
+- 趣味ごとにチャットルームが作られる
+- 各チャットルームにはその趣味をある程度かじっている人が存在している
+  - 新しくその趣味を始めるにあたって必要なことをその人から直接教えてもらえる
+    - 初期投資どれくらい、何を買ったらいいの、コミュニティありますか、など
+- その趣味をすでに始めている人のお節介な部分と、初心者とを紐付けるイメージ
