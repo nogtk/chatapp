@@ -1,7 +1,7 @@
-<form name="form" action="<%= Routes.page_path(@conn, :enter) %>" method="get">
+<%# <form action="<%= Routes.room_path(@conn, :index) %>
+<%= form_tag(Routes.room_path(@conn, :index), method: :post)%>
   <label>あなたの名前</label>
   <input type="text" name="username"></input>
   <button type="submit"> "Let's Chat!!"</button>
   <%# <%= button "Let's Chat!!", to: Routes.page_path(@conn, :enter, name), method: "get", id: "button" %>
-</form>
 <%# <form name="form" action="<%= Routes.page_path(@conn, :enter)" method="get">%>
