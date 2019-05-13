@@ -1,0 +1,20 @@
+<h1> All Rooms </h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Room Name</th>
+      <th>Room Description</th>
+    </tr>
+  </thead>
+  <tbody>
+  <%= for room <- @rooms do %>
+    <tr>
+      <td><%= room.name %></td>
+      <td><%= room.description%></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+
