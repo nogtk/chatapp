@@ -1,5 +1,5 @@
 <%# <form action="<%= Routes.room_path(@conn, :index) %>
-<%= form_tag(Routes.room_path(@conn, :index), method: :post)%>
+<%= form_tag(Routes.room_path(@conn, :enter), method: :post)%>
   <label>あなたの名前</label>
   <input type="text" name="username"></input>
   <button type="submit"> "Let's Chat!!"</button>

@@ -1,5 +1,6 @@
 <h1> All Rooms </h1>
 <h2><%= @username %></h2>
+<a href="<%= Routes.room_path(@conn, :new, @username) %>">新規ルーム作成</a>
 <table>
   <thead>
     <tr>
