@@ -1,12 +1,10 @@
 <h1> All Rooms </h1>
-<h2><%= @username %></h2>
 <a href="<%= Routes.room_path(@conn, :new, @username) %>">新規ルーム作成</a>
 <table>
   <thead>
     <tr>
       <th>Room Name</th>
       <th>Room Description</th>
-      <th>Link</th>
     </tr>
   </thead>
   <tbody>
@@ -14,7 +12,8 @@
     <tr>
       <td><%= room.name %></td>
       <td><%= room.description%></td>
-      <td><a href="<%= Routes.room_path(@conn, :show, @username, room) %>">リンクはここだよ</a></td>
+      <td><%= link("入室", to: Routes.room_path(@conn, :show, @username, room), method: :get) %></td>
+      <td><%= link("削除", to: Routes.room_path(@conn, :delete, @username, room), method: :delete) %></td>
     </tr>
   <% end %>
   </tbody>

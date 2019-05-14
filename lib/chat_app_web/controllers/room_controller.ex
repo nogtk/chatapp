@@ -28,4 +28,11 @@ defmodule ChatAppWeb.RoomController do
         render(conn, "new.html", changeset: changeset, name: name)
     end
   end
+  def delete(conn, %{"id" => id, "name" => name}) do
+    room = Room |> Repo.get(id)
+    Repo.delete(room)
+
+    conn
+    |> redirect(to: Routes.room_path(conn, :index, name))
+  end
 end
