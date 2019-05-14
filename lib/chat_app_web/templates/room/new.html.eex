@@ -1,0 +1,19 @@
+<h1>New</h1>
+
+<%= form_for @changeset, Routes.room_path(@conn, :create, @name), fn f -> %>
+
+<div class="form-group">
+  <label>タイトル</label>
+  <%= text_input f, :name, class: "form-control" %>
+  <%= error_tag f, :name%>
+</div>
+
+<div class="form-group">
+  <label>本文</label>
+  <%= textarea f, :description, class: "form-control" %>
+  <%= error_tag f, :description %>
+</div>
+
+<%= submit "Submit", class: "btn btn-primary" %>
+
+<% end %>
