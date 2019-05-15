@@ -57,25 +57,28 @@ socket.connect()
 // Now that you are connected, you can join channels with a topic:
 // let channel = socket.channel("topic:subtopic", {})
 let roomId = document.querySelector("#room-id").value
-let channel = socket.channel("room:" + roomId, {})
+let channel = socket.channel("room:" + roomId, {room_id: roomId})
+// let channel = socket.channel("room:hoge", {})
 let chatInput = document.querySelector("#chat-input")
 let messagesContainer = document.querySelector("#messages")
 // let userNameInput = document.querySelector("#user-name")
 let userNameInput = document.querySelector("#username")
 
 chatInput.addEventListener("keypress", event => {
-  if(event.keyCode == 13) {
+  if(event.keyCode == 13 && chatInput.value.length > 0) {
     let message = '( ' + userNameInput.value + ' ) : ' + chatInput.value
-    channel.push("new_msg", {body: message})
+    channel.push("new_msg", {body: message, room_id: roomId})
     chatInput.value = ""
   }
 })
 
 channel.on("new_msg", payload => {
   let messageItem = document.createElement("li")
-  var date = new Date();
-  messageItem.innerText = `[${date.getMonth()+1 + '月' + date.getDate() + '日'
-    + date.getHours() + '時' + date.getMinutes() + '分'}] ${payload.body}`
+  // var date = new Date();
+  // messageItem.innerText = `[${date.getMonth()+1 + '月' + date.getDate() + '日'
+  //   + date.getHours() + '時' + date.getMinutes() + '分'}] ${payload.body}`
+  // messagesContainer.appendChild(messageItem)
+  messageItem.innerText = `${payload.body}`
   messagesContainer.appendChild(messageItem)
 })
 
