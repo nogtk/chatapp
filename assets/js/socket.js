@@ -56,7 +56,8 @@ socket.connect()
 
 // Now that you are connected, you can join channels with a topic:
 // let channel = socket.channel("topic:subtopic", {})
-let channel = socket.channel("room:lobby", {})
+let roomId = document.querySelector("#room-id").value
+let channel = socket.channel("room:" + roomId, {})
 let chatInput = document.querySelector("#chat-input")
 let messagesContainer = document.querySelector("#messages")
 // let userNameInput = document.querySelector("#user-name")
