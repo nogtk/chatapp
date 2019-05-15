@@ -11,7 +11,6 @@ defmodule ChatAppWeb.RoomController do
     render(conn, "index.html", rooms: rooms, username: name)
   end
   def show(conn, %{"id" => id, "name" => name}) do
-    # room = Room |> Repo.get(id)
     render(conn, "chatroom.html", room_id: id, name: name)
   end
   def new(conn, %{"name" => name}) do
