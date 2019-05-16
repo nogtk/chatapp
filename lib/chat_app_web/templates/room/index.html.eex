@@ -14,7 +14,8 @@
       <td class="table-text"><%= room.name %></td>
       <td class="table-text"><%= room.description%></td>
       <td><%= link("入室", to: Routes.room_path(@conn, :show, @username, room), method: :get, class: "btn btn-block btn-primary") %></td>
-      <td><%= link("削除", to: Routes.room_path(@conn, :delete, @username, room), method: :delete, class: "btn btn-block btn-danger") %></td>
+      <td><%= link("削除", to: Routes.room_path(@conn, :delete, @username, room), method: :delete, class: "btn btn-block btn-danger",
+        data: [confirm: "部屋名「#{room.name}」を削除してもいいですか？"]) %></td>
     </tr>
   <% end %>
   </tbody>
