@@ -1,5 +1,3 @@
-<h1>New</h1>
-
 <%= form_for @changeset, Routes.room_path(@conn, :create, @name), fn f -> %>
 
 <div class="form-group">
@@ -14,6 +12,6 @@
   <%= error_tag f, :description %>
 </div>
 
-<%= submit "Submit", class: "btn btn-primary" %>
+<%= submit "ルームを作成", class: "btn btn-primary" %>
 
 <% end %>
