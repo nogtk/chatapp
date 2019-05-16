@@ -132,3 +132,45 @@ header nav a {
     margin: 2rem 1rem;
   }
 }
+
+#messages li {
+  list-style: none;
+}
+
+.logo {
+  float: left;
+  letter-spacing: -1px;
+  padding-left: 10px;
+  padding-top: 10px;
+  font-weight: bold;
+}
+.logo h1 {
+  font-size: 35px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.btn {
+  padding: 5px 5px;
+  border: 0 none;
+  font-weight: 700;
+  letter-spacing: 2px;
+  font-size: 15px;
+  font-family: 'Kosugi Maru', sans-serif;
+}
+.new-room {
+  float: right;
+  padding-right: 23px;
+}
+.table-text {
+  font-size: 20px;
+  font-family: 'Kosugi Maru', sans-serif;
+}
+.chatroom {
+  font-family: 'Kosugi Maru', sans-serif;
+  font-size: 20px;
+}
+
+.top-page {
+  font-family: 'Kosugi Maru', sans-serif;
+  font-size: 25px;
+}

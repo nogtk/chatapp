@@ -1,4 +1,6 @@
-<div id="messages"></div>
-<input id="chat-input" type="text"></input>
-<input id="username", type="hidden", value=<%= @name %>></input>
-<input id="room-id", type="hidden", value=<%= @room_id%>></input>
+<div class="chatroom">
+  <div id="messages"></div>
+  <input id="chat-input" type="text" placeholder="入力してenterで送信！"></input>
+  <input id="username", type="hidden", value=<%= @name %>></input>
+  <input id="room-id", type="hidden", value=<%= @room_id%>></input>
+</div>

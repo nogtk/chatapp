@@ -1,22 +1,26 @@
-<h1> All Rooms </h1>
-<a href="<%= Routes.room_path(@conn, :new, @username) %>">新規ルーム作成</a>
-<table>
-  <thead>
+<table class="table-responsive-xl table-hover">
+  <thead class="thead-light">
     <tr>
-      <th>Room Name</th>
-      <th>Room Description</th>
+      <th class="table-text">部屋の名前</th>
+      <th class="table-text">部屋の説明</th>
+      <th></th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
   <%= for room <- @rooms do %>
+    <div class="tb">
     <tr>
-      <td><%= room.name %></td>
-      <td><%= room.description%></td>
-      <td><%= link("入室", to: Routes.room_path(@conn, :show, @username, room), method: :get) %></td>
-      <td><%= link("削除", to: Routes.room_path(@conn, :delete, @username, room), method: :delete) %></td>
+      <td class="table-text"><%= room.name %></td>
+      <td class="table-text"><%= room.description%></td>
+      <td><%= link("入室", to: Routes.room_path(@conn, :show, @username, room), method: :get, class: "btn btn-block btn-primary") %></td>
+      <td><%= link("削除", to: Routes.room_path(@conn, :delete, @username, room), method: :delete, class: "btn btn-block btn-danger") %></td>
     </tr>
   <% end %>
   </tbody>
 </table>
+<div class="new-room">
+  <%= link("新規ルーム作成", to: Routes.room_path(@conn, :new, @username), method: :get, class: "btn btn-lg btn-success") %>
+</div>
 
 
