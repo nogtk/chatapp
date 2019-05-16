@@ -66,7 +66,7 @@ let userNameInput = document.querySelector("#username")
 
 chatInput.addEventListener("keypress", event => {
   if(event.keyCode == 13 && chatInput.value.length > 0) {
-    let message = '( ' + userNameInput.value + ' ) : ' + chatInput.value
+    let message = '( ' + userNameInput.value + 'さん ) : ' + chatInput.value
     channel.push("new_msg", {body: message, room_id: roomId})
     chatInput.value = ""
   }
