@@ -4,6 +4,7 @@ defmodule ChatApp.Message do
 
   schema "messages" do
     field :message, :string
+    field :image, :string
     belongs_to :room, ChatApp.Room
     timestamps()
   end
