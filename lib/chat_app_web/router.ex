@@ -24,6 +24,7 @@ defmodule ChatAppWeb.Router do
     get "/:name/rooms/:id", RoomController, :show
     post "/:name/rooms", RoomController, :create
     delete "/:name/rooms/:id", RoomController, :delete
+    post "/:name/rooms/:id/messages", MessageController, :create
   end
 
   # Other scopes may use custom stacks.

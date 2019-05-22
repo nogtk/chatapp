@@ -7,9 +7,10 @@ defmodule ChatAppWeb.RoomChannel do
     {:ok, socket}
   end
   def handle_in("new_msg", %{"body" => body, "room_id" => room_id, "image" => image}, socket) do
-    Ecto.build_assoc(ChatApp.Room |> ChatApp.Repo.get(room_id), :messages, %{message: body, image: image})
+    changeset = Ecto.build_assoc(ChatApp.Room |> ChatApp.Repo.get(room_id), :messages)
+    |> ChatApp.Message.changeset(%{image: image, message: body})
     |> ChatApp.Repo.insert
-    broadcast!(socket, "new_msg", %{body: body})
+    broadcast!(socket, "new_msg", %{body: body, image: image})
     {:noreply, socket}
   end
 
@@ -22,7 +23,7 @@ defmodule ChatAppWeb.RoomChannel do
     ChatApp.Message.get_room_info(room_id).messages
     |> Enum.each(fn msg -> push(socket, "new_msg", %{
       body: msg.message,
-      image: msg.image
+      image: ChatApp.ImageUploader.url({msg.image, msg}, :thumb)
     }) end)
     {:noreply, socket}
   end

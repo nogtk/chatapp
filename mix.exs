@@ -20,7 +20,7 @@ defmodule ChatApp.MixProject do
   def application do
     [
       mod: {ChatApp.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :arc_ecto]
     ]
   end
 
@@ -42,7 +42,9 @@ defmodule ChatApp.MixProject do
       {:phoenix_live_reload, "~> 1.2", only: :dev},
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
-      {:plug_cowboy, "~> 2.0"}
+      {:plug_cowboy, "~> 2.0"},
+      {:arc, "~> 0.11.0"},
+      {:arc_ecto, "~> 0.11.1"}
     ]
   end
 

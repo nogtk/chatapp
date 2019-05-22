@@ -1,10 +1,11 @@
 defmodule ChatApp.Message do
   use Ecto.Schema
   import Ecto.Changeset
+  use Arc.Ecto.Schema
 
   schema "messages" do
     field :message, :string
-    field :image, :string
+    field :image, ChatApp.ImageUploader.Type
     belongs_to :room, ChatApp.Room
     timestamps()
   end
@@ -14,6 +15,7 @@ defmodule ChatApp.Message do
     message
     |> cast(attrs, [:message])
     |> validate_required([:message])
+    |> cast_attachments(attrs, [:image])
   end
 
   def get_room_info(id) do
