@@ -1,6 +1,14 @@
 <div class="chatroom">
   <div id="messages"></div>
   <input id="chat-input" type="text" placeholder="入力してenterで送信！"></input>
+  <!-- <input id="image-input" type="file"></input> -->
   <input id="username", type="hidden", value=<%= @name %>></input>
   <input id="room-id", type="hidden", value=<%= @room_id%>></input>
 </div>
+<%= form_for @changeset, Routes.message_path(@conn, :create, @name, @room_id), [multipart: true], fn f -> %>
+  <%= file_input f, :image, required: true %>
+  <%= error_tag f, :image %>
+  <%= text_input f, :text, value: "( " <> @name <> "さん ) : ", type: "hidden" %>
+  <%= text_input f, :room_id, value: @room_id, type: "hidden" %>
+  <%= submit "画像を送信", class: "btn btn-primary" %>
+<% end %>

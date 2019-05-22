@@ -2,6 +2,7 @@ defmodule ChatAppWeb.RoomController do
   use ChatAppWeb, :controller
   alias ChatApp.Room
   alias ChatApp.Repo
+  alias ChatApp.Message
   def enter(conn, %{"username" => username}) do
     rooms = Room |> Repo.all
     render(conn, "index.html", rooms: rooms, username: username)
@@ -11,7 +12,8 @@ defmodule ChatAppWeb.RoomController do
     render(conn, "index.html", rooms: rooms, username: name)
   end
   def show(conn, %{"id" => id, "name" => name}) do
-    render(conn, "chatroom.html", room_id: id, name: name)
+    changeset = Message.changeset(%Message{}, %{})
+    render(conn, "chatroom.html", room_id: id, name: name, changeset: changeset)
   end
   def new(conn, %{"name" => name}) do
     changeset = Room.changeset(%Room{}, %{})
