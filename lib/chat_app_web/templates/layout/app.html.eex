@@ -15,7 +15,7 @@
     <header>
       <nav class="navbar navbar-dark navbar-inverse bg-info text-white">
         <div class="logo link-text">
-          <%= link("start|>ash", to: Routes.page_path(@conn, :new), class: "text-white") %>
+          <%= link("start|>ash", to: Routes.page_path(@conn, :index), class: "text-white") %>
         </div>
       </nav>
     </header>
