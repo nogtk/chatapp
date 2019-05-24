@@ -55,14 +55,11 @@ let socket = new Socket("/socket", {params: {token: window.userToken}})
 socket.connect()
 
 // Now that you are connected, you can join channels with a topic:
-// let channel = socket.channel("topic:subtopic", {})
 let roomId = document.querySelector("#room-id").value
 let channel = socket.channel("room:" + roomId, {room_id: roomId})
-// let channel = socket.channel("room:hoge", {})
 let chatInput = document.querySelector("#chat-input")
 let messagesContainer = document.querySelector("#messages")
 let imageInput = document.querySelector("#image-input")
-// let userNameInput = document.querySelector("#user-name")
 let userNameInput = document.querySelector("#username")
 
 chatInput.addEventListener("keypress", event => {
@@ -74,19 +71,8 @@ chatInput.addEventListener("keypress", event => {
   }
 })
 
-// imageInput.addEventListener("change", event => {
-//   let image = imageInput.value
-//   let message = '( ' + userNameInput.value + 'さん ) : '
-//   channel.push("new_img", {body: message, image: image})
-//   imageInput.value = ""
-// })
-
 channel.on("new_msg", payload => {
   let messageItem = document.createElement("li")
-  // var date = new Date();
-  // messageItem.innerText = `[${date.getMonth()+1 + '月' + date.getDate() + '日'
-  //   + date.getHours() + '時' + date.getMinutes() + '分'}] ${payload.body}`
-  // messagesContainer.appendChild(messageItem)
   messageItem.innerText = `${payload.body}`
   messagesContainer.appendChild(messageItem)
   if(`${payload.image}` != "null"){
@@ -98,16 +84,6 @@ channel.on("new_msg", payload => {
     messagesContainer.appendChild(imageItemList)
   }
 })
-
-// channel.on("new_img", payload => {
-//   let messageItem = document.createElement("li")
-//   messageItem.innerText = `${payload.body}`
-//   let imageItem = document.createElement("img")
-//   // imageItem.srcへURLを渡してあげるのが目標
-//   imageItem.src = "https://hakuhin.jp/graphic/title.png"
-//   messagesContainer.appendChild(messageItem)
-//   messagesContainer.appendChild(imageItem)
-// })
 
 channel.join()
   .receive("ok", resp => { console.log("Joined successfully", resp) })
