@@ -141,11 +141,11 @@ header nav a {
   float: left;
   letter-spacing: -1px;
   padding-left: 10px;
-  padding-top: 10px;
+  /* padding-top: 10px; */
   font-weight: bold;
 }
-.logo h1 {
-  font-size: 35px;
+.logo a {
+  font-size: 50px;
   font-family: 'Economica', sans-serif;
 }
 
@@ -173,4 +173,8 @@ header nav a {
 .top-page {
   font-family: 'Kosugi Maru', sans-serif;
   font-size: 25px;
+}
+
+.link-text a:hover {
+  text-decoration: none;
 }
