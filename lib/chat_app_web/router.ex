@@ -17,7 +17,7 @@ defmodule ChatAppWeb.Router do
     pipe_through :browser
 
 
-    get "/", PageController, :new
+    get "/", PageController, :index
     post "/rooms", RoomController, :enter
     get "/:name/rooms", RoomController, :index
     get "/:name/rooms/new", RoomController, :new

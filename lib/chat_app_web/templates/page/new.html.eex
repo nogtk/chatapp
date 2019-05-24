@@ -1,8 +1,0 @@
-<div class="top-page">
-  <%= form_tag(Routes.room_path(@conn, :enter), method: :post)%>
-    <div class="form-group">
-      <input type="text" name="username" placeholder="名前を入力してください" required
-        title="名前が入力されてないよ"></input>
-      <button type="submit" class="btn btn-bg btn-success"> 始める </button>
-  </form>
-</div>
