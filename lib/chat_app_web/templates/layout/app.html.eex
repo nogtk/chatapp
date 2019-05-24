@@ -13,10 +13,11 @@
   </head>
   <body>
     <header>
-      <nav class="navbar navbar-dark bg-info text-white">
-      <div class="logo">
-        <h1>Start|>ash</h1>
-      </div>
+      <nav class="navbar navbar-dark navbar-inverse bg-info text-white">
+        <div class="logo link-text">
+          <%= link("start|>ash", to: Routes.page_path(@conn, :new), class: "text-white") %>
+        </div>
+      </nav>
     </header>
     <main role="main" class="container">
       <%= render @view_module, @view_template, assigns %>
