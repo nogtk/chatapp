@@ -61,6 +61,7 @@ let chatInput = document.querySelector("#chat-input")
 let messagesContainer = document.querySelector("#messages")
 let imageInput = document.querySelector("#image-input")
 let userNameInput = document.querySelector("#username")
+let imageButton = document.querySelector("#image-button")
 
 chatInput.addEventListener("keypress", event => {
   if(event.keyCode == 13 && chatInput.value.length > 0) {
@@ -69,6 +70,14 @@ chatInput.addEventListener("keypress", event => {
     channel.push("new_msg", {body: message, room_id: roomId, image: image})
     chatInput.value = ""
   }
+})
+
+imageButton.addEventListener("click", event => {
+  // if(imageInput.value.length() > 0) {
+    let message = userNameInput.value + "さん が画像を送信したよ."
+    let image = "null"
+    channel.push("new_msg", {body: message, room_id: roomId, image: image})
+  // }
 })
 
 channel.on("new_msg", payload => {

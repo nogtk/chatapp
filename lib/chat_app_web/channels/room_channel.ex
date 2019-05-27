@@ -14,11 +14,6 @@ defmodule ChatAppWeb.RoomChannel do
     {:noreply, socket}
   end
 
-  def handle_in("new_img", %{"body" => body, "image" => image}, socket) do
-    broadcast!(socket, "new_img", %{body: body, image: image})
-    {:noreply, socket}
-  end
-
   def handle_info({:after_join, room_id}, socket) do
     ChatApp.Message.get_room_info(room_id).messages
     |> Enum.each(fn msg -> push(socket, "new_msg", %{
