@@ -75,8 +75,11 @@ chatInput.addEventListener("keypress", event => {
 imageButton.addEventListener("click", event => {
   // if(imageInput.value.length() > 0) {
     let message = userNameInput.value + "さん が画像を送信したよ."
+    message += "リロードしてみてね."
+    let saveMessage = '( ' + userNameInput.value + 'さん ) : '
+    saveMessage += "画像を送信しました"
     let image = "null"
-    channel.push("new_msg", {body: message, room_id: roomId, image: image})
+    channel.push("new_img", {body: message, room_id: roomId, image: image, save_message: saveMessage})
   // }
 })
 
