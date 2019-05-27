@@ -9,5 +9,5 @@
   <%= error_tag f, :image %>
   <%= text_input f, :text, value: "", type: "hidden" %>
   <%= text_input f, :room_id, value: @room_id, type: "hidden" %>
-  <%= submit "画像を送信", class: "btn btn-primary", id: "image-button" %>
+  <%= submit "画像を送信", class: "btn btn-primary", id: "image-button", disabled: true %>
 <% end %>
