@@ -21,9 +21,9 @@ defmodule ChatApp.ImageUploader do
   # end
 
   # Define a thumbnail transformation:
-  def transform(:thumb, _) do
-    {:convert, "-strip -thumbnail 250x250^ -gravity center -extent 250x250"}
-  end
+  # def transform(:thumb, _) do
+  #   {:convert, "-strip -thumbnail 250x250^ -gravity center -extent 250x250"}
+  # end
 
   # Override the persisted filenames:
   # def filename(version, _) do
