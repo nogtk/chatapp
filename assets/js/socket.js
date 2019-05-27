@@ -79,7 +79,6 @@ imageButton.addEventListener("click", event => {
   let saveMessage = '( ' + userNameInput.value + 'さん ) : '
   saveMessage += "画像を送信しました"
   let image = "null"
-  // console.log(imageInput.value.length())
   channel.push("new_img", {body: message, room_id: roomId, image: image, save_message: saveMessage})
 })
 
