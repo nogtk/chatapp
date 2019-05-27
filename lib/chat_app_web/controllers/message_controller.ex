@@ -5,7 +5,7 @@ defmodule ChatAppWeb.MessageController do
   alias ChatApp.Repo
   def create(conn, %{"message" => message_params, "name" => name, "id" => room_id}) do
     changeset = Ecto.build_assoc(ChatApp.Room |> ChatApp.Repo.get(room_id), :messages)
-    |> Message.changeset(%{image: message_params["image"], message: message_params["text"]})
+    |> Message.changeset(%{image: message_params["image"], message: " "})
     case Repo.insert(changeset) do
       {:ok, message} ->
         conn

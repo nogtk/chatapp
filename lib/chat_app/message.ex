@@ -6,6 +6,7 @@ defmodule ChatApp.Message do
   schema "messages" do
     field :message, :string
     field :image, ChatApp.ImageUploader.Type
+    # field :image, :string
     belongs_to :room, ChatApp.Room
     timestamps()
   end
@@ -14,7 +15,7 @@ defmodule ChatApp.Message do
   def changeset(message, attrs) do
     message
     |> cast(attrs, [:message])
-    |> validate_required([:message])
+    # |> validate_required([:message])
     |> cast_attachments(attrs, [:image])
   end
 
