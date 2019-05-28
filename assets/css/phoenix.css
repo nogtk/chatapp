@@ -168,6 +168,9 @@ header nav a {
 .chatroom {
   font-family: 'Kosugi Maru', sans-serif;
   font-size: 20px;
+  float: right;
+  width: 60%;
+  margin-left: 5%;
 }
 
 .top-page {
@@ -180,18 +183,41 @@ header nav a {
 }
 
 #index-to-room {
-  font-size: 25px;
-  margin-bottom: 50px;
-  margin-top: -20px;
-  float: right;
+  font-size: 15px;
 }
 
 #image-button {
-  font-size: 25px;
-  padding-bottom: 45px;
-  margin-left: -40px;
+  font-size: 15px;
+  margin-left: 0px;
 }
 
 #image-input {
-  font-size: 25px;
+  font-size: 15px;
+}
+
+.sidebyside {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.side-right-bar {
+  font-family: 'Kosugi Maru', sans-serif;
+  font-size: 17px;
+  float: right;
+  width: 35%;
+}
+
+table {
+  width: 100%;
+  table-layout: fixed;
+  text-align: center;
+}
+
+table td {
+  overflow-wrap: break-word;
+}
+
+.input-form {
+  margin-top: 25px;
 }

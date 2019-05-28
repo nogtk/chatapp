@@ -1,14 +1,14 @@
 <%= form_for @changeset, Routes.room_path(@conn, :create, @name), fn f -> %>
 
 <div class="form-group">
-  <label>タイトル</label>
-  <%= text_input f, :name, class: "form-control" %>
+  <label>タイトル（ 15文字以内 ）</label>
+  <%= text_input f, :name, class: "form-control", maxlength: "15" %>
   <%= error_tag f, :name%>
 </div>
 
 <div class="form-group">
-  <label>本文</label>
-  <%= textarea f, :description, class: "form-control" %>
+  <label>本文 ( 35文字以内 )</label>
+  <%= text_input f, :description, class: "form-control", maxlength: "35" %>
   <%= error_tag f, :description %>
 </div>
 
