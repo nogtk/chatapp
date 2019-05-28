@@ -1,15 +1,29 @@
+<div class="sidebyside">
 <div class="chatroom">
   <div id="messages"></div>
-  <input id="chat-input" type="text" placeholder="入力してenterで送信！"></input>
   <input id="username", type="hidden", value=<%= @name %>></input>
   <input id="room-id", type="hidden", value=<%= @room_id%>></input>
+  <div class="input-form">
+    <input id="chat-input" type="text" placeholder="入力してenterで送信！"></input>
+    <%= form_for @changeset, Routes.message_path(@conn, :create, @name, @room_id), [multipart: true], fn f -> %>
+      <%= file_input f, :image, required: true, id: "image-input", accept: "image/*" %>
+      <%= error_tag f, :image %>
+      <%= text_input f, :text, value: "", type: "hidden" %>
+      <%= text_input f, :room_id, value: @room_id, type: "hidden" %>
+      <%= submit "画像を送信", class: "btn btn-primary", id: "image-button", disabled: true %>
+    <% end %>
+  </div>
 </div>
-<%= form_for @changeset, Routes.message_path(@conn, :create, @name, @room_id), [multipart: true], fn f -> %>
-  <%= file_input f, :image, required: true, id: "image-input", accept: "image/*" %>
-  <%= error_tag f, :image %>
-  <%= text_input f, :text, value: "", type: "hidden" %>
-  <%= text_input f, :room_id, value: @room_id, type: "hidden" %>
-  <%= submit "画像を送信", class: "btn btn-primary", id: "image-button", disabled: true %>
-<% end %>
-<%= link("ルーム一覧画面へ", to: Routes.room_path(@conn, :index, @name), class: "btn btn-info", id: "index-to-room") %>
+<div class="side-right-bar">
+  <table class="table-default">
+    <tr>
+      <th>部屋名</th><td><%= @room.name %></td>
+    </tr>
+    <tr>
+      <th>概要</th><td><%= @room.description %></td>
+    </tr>
+  </table>
+  <%= link("ルーム一覧画面へ", to: Routes.room_path(@conn, :index, @name), class: "btn btn-info", id: "index-to-room") %>
+</div>
+</div>
 

@@ -13,7 +13,8 @@ defmodule ChatAppWeb.RoomController do
   end
   def show(conn, %{"id" => id, "name" => name}) do
     changeset = Message.changeset(%Message{}, %{})
-    render(conn, "chatroom.html", room_id: id, name: name, changeset: changeset)
+    room = Room |> Repo.get(id)
+    render(conn, "chatroom.html", room_id: id, name: name, changeset: changeset, room: room)
   end
   def new(conn, %{"name" => name}) do
     changeset = Room.changeset(%Room{}, %{})
