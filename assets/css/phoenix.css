@@ -178,3 +178,20 @@ header nav a {
 .link-text a:hover {
   text-decoration: none;
 }
+
+#index-to-room {
+  font-size: 25px;
+  margin-bottom: 50px;
+  margin-top: -20px;
+  float: right;
+}
+
+#image-button {
+  font-size: 25px;
+  padding-bottom: 45px;
+  margin-left: -40px;
+}
+
+#image-input {
+  font-size: 25px;
+}

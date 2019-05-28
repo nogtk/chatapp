@@ -11,3 +11,5 @@
   <%= text_input f, :room_id, value: @room_id, type: "hidden" %>
   <%= submit "画像を送信", class: "btn btn-primary", id: "image-button", disabled: true %>
 <% end %>
+<%= link("ルーム一覧画面へ", to: Routes.room_path(@conn, :index, @name), class: "btn btn-info", id: "index-to-room") %>
+
