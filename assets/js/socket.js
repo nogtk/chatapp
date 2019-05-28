@@ -77,7 +77,11 @@ imageButton.addEventListener("click", event => {
   let message = userNameInput.value + "さん が画像を送信したよ."
   message += "リロードしてみてね."
   let saveMessage = '( ' + userNameInput.value + 'さん ) : '
-  saveMessage += "画像を送信しました"
+  if(chatInput.value == 0){
+    saveMessage += "画像を送信しました"
+  } else {
+    saveMessage += chatInput.value
+  }
   let image = "null"
   channel.push("new_img", {body: message, room_id: roomId, image: image, save_message: saveMessage})
 })
